@@ -1,0 +1,268 @@
+@charset "UTF-8";
+
+html {
+    font-size: 62.5%;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+body {
+    background: #151515 url('../images/bg.png') no-repeat fixed left bottom;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: Raleway, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+}
+
+.header {
+    padding: 170px 30px 80px;
+}
+
+.site-title-sub {
+    margin: 0 0 30px;
+    letter-spacing: 1px;
+    font-size: 2.2rem;
+}
+.site-title-sub::before,
+.site-title-sub::after {       /*::beforeで最初 ::afterで最後まで*/
+    content: '';
+    display: inline-block;
+    width: 140px;
+    height: 2px;
+    margin: 0 30px;
+    background-color: #fff;
+    vertical-align: middle;    /*線が縦方向かつ文字の中央*/
+}
+.site-title {
+    margin: 50px 0 40px;
+    font-size: 7.6rem;
+}
+.site-description {
+    margin-bottom: 50px;
+    color: #888;
+    font-size: 1.6rem;
+}
+
+/*ボタン風の部分*/
+.button {
+    display: inline-block;   /*横に文字や要素を並べやすくするために*/
+    width: 200px;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: #afa58d;
+    color: #fff;
+    text-decoration: none;   /*リンクの下線が表示されないようにnoneにする*/
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+}
+.button:hover {
+    opacity: 0.9;
+}
+.button-showy {
+    background-color: #f1b400;  /*背景色のみ.button-showyで上書きできる*/
+}
+.buttons .button {
+    margin: 10px;
+}
+
+
+/*ABOUT MEのコーディング*/
+.about {
+    padding: 80px 30px;
+    background-color: #fff;
+    color: #333;
+}
+.heading {
+    position: relative;  
+    display: inline-block;
+    margin: 30px 0 15px;
+    padding: 15px;
+    letter-spacing: 2px;
+    font-size: 4rem;
+    border-bottom: 5px double #999;
+    
+}
+.heading::before
+.heading::after {
+    content: '';
+    position: absolute;    /*親になる.headingにposition: relativeを指定。擬似要素はposition: absoluteにすることで位置指定を有効にしている*/
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-bottom: 1px solid #999;
+}
+.heading::before {
+    bottom: 5px;      
+}
+
+.about-text {
+    margin: 30px 0;
+    line-height: 2.5;
+}
+/*セクション1ここまで*/
+
+.works {
+    background-color: #383634;
+    padding: 80px 0;
+}
+
+.works-wrapper {
+    display: flex;        /*横並び*/
+    width: 100%;          /*横幅いっぱいに広がるように100%*/
+    margin-top: 60px;
+    table-layout: fixed;  /*これによってdisplay: table-cell;に指定した要素の内容の横幅が違くても横幅を同じ幅にしてくれる*/
+}
+.work-box {
+    position: relative;
+    display: table-cell;
+}
+.work-box::after {
+    content: '';
+    position: absolute;    /*初期値がinlineだがabsoluteにすることでわざわざ変更しなくて済む*/
+    top: 50%;           /*下半分に収まるように*/
+    left: 0;
+    width: 100%;        /*works-boxの半分の高さのサイズにする*/
+    height: 50%;
+    background: no-repeat;
+    background: url('../images/tree.jpg') no-repeat;
+    background-size: 100% 100%;
+    opacity: 0.2;         /*半透明*/
+    transform: scaleY(-1);   /*上下反転。scaleは通常、拡大縮小を指定するが、値をマイナスにすることで画像の反転になる。scaleYのYは縦方向のこと*/
+}
+.work-box.tree::after {
+    background-image: url('../images/tree.jpg');
+}
+.work-box.building::after {
+    background-image: url('../images/building.jpg');
+}
+.work-box.lake::after {
+    background-image: url('../images/lake.jpg');
+}
+.work-box.sky::after {
+    background-image: url('../images/sky.jpg');
+}
+
+.work-image {
+    display: block;
+    width: 100%;
+    margin: 0 0 60%;
+}
+.work-description {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 50%;
+    overflow-y: auto;       /*画面の幅が狭くなるとスクロールして文字を見えるようにする*/
+}
+.work-description-inner {
+    display: table;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+.work-text {
+    display: table-cell;
+    vertical-align: middle;  /*縦方向の中央寄せ*/
+    font-size: 1.2rem;
+    line-height: 2;
+}
+.work-text .button {
+    width: 60%;
+    margin-top: 20px;
+    padding: 3px;
+}
+.button-ghost {
+    border: 1px solid #fff;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.work-box:nth-child(odd) .work-image {
+    margin: 60% 0 0;     /*work-imageに指定していた下方向のmarginを0にすることで上方向に指定しなおす*/ 
+}
+.work-box:nth-child(odd) .work-description,
+.work-box:nth-child(odd)::after {
+    top: 0;
+}
+
+.skills {
+    padding: 80px 0;
+    background: #fff;
+    color: #333;
+}
+.skills-wrapper {
+    display: table;
+    width: 80%;
+    margin: 50px auto 0;
+    table-layout: fixed;
+}
+.skill-box {
+    display: table-cell;
+}
+.skill-icon {
+    width: 150px;             /*外枠のサイズ*/
+    height: 150px;
+    margin-bottom: 30px;      /*テキストとの間*/
+    border: 4px solid;        /*colorで色の指定をまとめてしているからsolidの後は指定しなくて良い*/
+    border-radius: 50%;       /*丸型。border-radiusは半円を指定できる。50%にすれば丸になる;*/
+    color: #f1b400;
+    font-size: 8rem;          /*アイコンフォントはとかではなくfont-sizeで大きさを指定。*/
+    line-height: 142px;
+}
+.skill-title {
+    margin: 0 20px 20px;
+    font-size: 2;
+}
+.skill-text {
+    margin: 0 20px;         /*画面幅が狭くなったりテキストが長くなった時に隣同士がくっつかないようにmarginを指定*/
+    line-height: 2;
+}
+
+.contact {
+    padding: 80px 0 150px;
+}
+.contact-form {
+    width: 50%;
+    margin: 50px auto 0;
+}
+.contact-form input[type=text],  /*属性名=属性値*/
+.contact-form textarea {
+    display: block;              /*縦に配置するためinline-blockではなくblockで表記*/
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px;                                   /*枠、入力テキストの間隔*/
+    outline: none;
+    border: 1px solid rgba(255, 255 255, 0.4);       /*透明度0.4*/
+    border-radius: 0;                                /*ブラウザによってデフォルトが角丸になっていることがあるからそれを防ぐために指定する*/
+    background-color: rgba(255, 255, 255, 0.05);   /*背景度0.05*/
+    color: #fff;                                   /*テキストの色*/
+}
+.contact-form textarea {
+    height: 150px;
+}
+.contact-form input[type=submit] {
+    display: block;
+    width: 200px;       /*送信ボタン*/
+    margin: 40px auto 0;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+    background-color: transparent;          /*透明を表す*/
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+}
+.contact-form input[type=submit]:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}       /*ホバーしたときにテキストエリアと同様の背景色を指定する*/
+
+.contact-form input[type=text]:focus,
+.contact-form textarea:focus {
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5) inset;
+}
+
+.footer {
+    padding: 12px 0;
+    font-size: 1.3rem;
+}
