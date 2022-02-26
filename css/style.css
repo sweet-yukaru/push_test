@@ -293,4 +293,20 @@ body {
     .heading {
         font-size: 2.5rem;
     }
+    body {
+        font-size: 1.3rem;
+    }
+    .about-text {
+        line-height: 1.8;
+    }
+    .works-wrapper,
+    .work-box {
+        display: block;
+    }
+    .work-image {
+        display: none;
+    }  /*パソコン上で8ブロック分とっていたため立幅が長くなる。画像をで非表示、背景画像のみ載せる。relativeに変更*/
+    .work-description {
+        position: relative;
+    }
 } 
