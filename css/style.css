@@ -334,5 +334,10 @@ body {
     .skill-text {           /*テキストの両脇*/
         margin: 0;
     }
-
+    .contact-form {          /*問い合わせフォームの調整*/
+        width: 80%;
+    }
+    .contact {
+        padding-bottom: 80px;
+    }
 } 
