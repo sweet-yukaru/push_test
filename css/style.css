@@ -1,5 +1,4 @@
 @charset "UTF-8";
-                            /*スマートフォンとタブレットに向け*/
 
 html {
     font-size: 62.5%;
@@ -270,43 +269,49 @@ body {
     font-size: 1.3rem;
 }
 
-@media (max-width: 768px) {
-    .site-title-sub::before,
+@media (max-width: 768px) {     /*スマートフォンとタブレットに向け*/
+    .site-title-sub::before,      /*サブタイトル*/
     .site-title-sub::after {
-        display: block;
+        display: block;      /*線の間隔を取る*/
         width: 80%;
         margin: 10px auto;
     }
     .site-title-sub{
         font-size: 1.7rem;
     }
-    .site-title {
+    .site-title {                /*タイトル*/
         margin-top: 35px;
         font-size: 5rem;
     }
-    .header {
+    .header {                   /*ヘッダー*/
         padding-top: 60px;
     }
-    .button:hover {
+    .button:hover {           /*iOS8の挙動の対策*/
         opacity: 1;
     }
-    .heading {
+    .heading {                /*見出し,ABOUT MEの*/
         font-size: 2.5rem;
     }
-    body {
+    body {                   /*テキストの文字サイズ*/
         font-size: 1.3rem;
     }
     .about-text {
         line-height: 1.8;
     }
-    .works-wrapper,
+    .works-wrapper,         /*ボックスを縦に並べる*/
     .work-box {
         display: block;
     }
-    .work-image {
+    .work-image {           /*パソコン上で8ブロック分とっていたため立幅が長くなる。画像をで非表示、背景画像のみ載せる。relativeに変更*/
         display: none;
-    }  /*パソコン上で8ブロック分とっていたため立幅が長くなる。画像をで非表示、背景画像のみ載せる。relativeに変更*/
-    .work-description {
+    }
+    .work-description {     /*作品紹介の画像を非表示*/
         position: relative;
+    }
+    .work-box::after {       /*transform: scaleY(-1)をnoneで上書き*/
+        top: 0;
+        height: 100%;
+        background-size: cover;
+        transform: none;
     }
 } 
