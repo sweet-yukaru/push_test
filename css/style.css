@@ -300,7 +300,7 @@ body {
     }
     .works-wrapper,         /*ボックスを縦に並べる*/
     .work-box {
-        display: block;
+        display: block;       /*display: tableとdisplay: table-cellを解除*/
     }
     .work-image {           /*パソコン上で8ブロック分とっていたため立幅が長くなる。画像をで非表示、背景画像のみ載せる。relativeに変更*/
         display: none;
@@ -313,5 +313,21 @@ body {
         height: 100%;
         background-size: cover;
         transform: none;
+    }
+    .skills-wrapper,
+    .skill-box {
+        display: block;      /*display: tableとdisplay: table-cellを解除*/
+    }
+    .skill-icon {         /*アイコンサイズの調節*/
+        width: 100px;
+        height: 100px;
+        font-size: 5rem;
+        line-height: 92px;
+    } 
+    .skill-box {            /*上下のmargin追加*/
+        margin: 40px auto;
+    }
+    .skill-text {           /*テキストの両脇*/
+        margin: 0;
     }
 } 
